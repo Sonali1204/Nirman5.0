@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdAlchemy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Login to EdAlchemy</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Login</button>
+        </form>
+        <p class="auth-switch">Don't have an account? <a href="#" id="showRegister">Sign up</a></p>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Join EdAlchemy</h2>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="registerName">Full Name</label>
+                <input type="text" id="registerName" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input type="email" id="registerEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" name="password" minlength="6" required>
+            </div>
+            <div class="form-group">
+                <label for="registerCollege">College/University</label>
+                <input type="text" id="registerCollege" name="college">
+            </div>
+            <div class="form-group">
+                <label for="registerCourse">Course</label>
+                <input type="text" id="registerCourse" name="course">
+            </div>
+            <div class="form-group">
+                <label for="registerYear">Year</label>
+                <select id="registerYear" name="year">
+                    <option value="">Select Year</option>
+                    <option value="1st">1st Year</option>
+                    <option value="2nd">2nd Year</option>
+                    <option value="3rd">3rd Year</option>
+                    <option value="4th">4th Year</option>
+                    <option value="5th">5th Year</option>
+                    <option value="Graduate">Graduate</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="#" id="showLogin">Login</a></p>
+    </div>
+</div>
+
+<!-- User Profile Dropdown -->
+<div id="userDropdown" class="user-dropdown">
+    <div class="user-info">
+        <span id="userName"></span>
+        <span id="userEmail"></span>
+    </div>
+    <div class="dropdown-links">
+        <a href="#" id="profileLink">My Profile</a>
+        <a href="#" id="dashboardLink">Dashboard</a>
+        <a href="#" id="logoutLink">Logout</a>
+    </div>
+</div>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="logo-text">EdAlchemy</div>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#about">Home</a>
+                    <a href="#problem">About</a>
+                    <a href="#solution">Study Tools</a>
+                    <a href="#features">Career Tools</a>
+                    <a href="#gamification">Contact Us</a>
+                    <a href="#personal">FAQs</a>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-secondary">Login</a>
+                    <a href="#" class="btn btn-primary">Sign Up</a>
+                </div>
+                
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Your Smart AI Companion for Academics, Productivity & Placement</h1>
+                    <p class="hero-subtitle">An AI-powered all-in-one ecosystem that helps students study smarter, revise faster, and become placement-ready.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Start Learning</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="dashboard-mockup floating">
+                        <div class="dashboard-content">
+                            <h3 class="dashboard-title">Dashboard</h3>
+                            <div class="dashboard-features">
+                                <p>Login to access our Career and Study tools</p>
+                                <a href="#" class="btnlog">LOGIN</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">What Is EdAlchemy?</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">EdAlchemy is an AI-driven academic, productivity, and placement ecosystem designed to support students throughout their entire learning journey. It organizes study material, generates quizzes, improves resumes, detects repeated PYQs, and provides personalized placement roadmaps.</p>
+                </div>
+                
+                <div class="about-image">
+                    <div class="ai-illustration floating">
+                        <i class="fas fa-robot ai-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                
+                
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution">
+        <div class="container">
+            <h2 class="section-title">The Smarter Way to Learn, Revise & Get Placed</h2>
+            
+            <div class="solution-list">
+                <div class="solution-item">
+                    <h3>Study Tools Integration</h3>
+                    <p>All your study materials organized in one place with smart categorization and search.</p>
+                </div>
+                
+                <div class="solution-item">
+                    <h3>Revision Automation</h3>
+                    <p>AI-powered revision schedules and automated quiz generation based on your weak areas.</p>
+                </div>
+                
+                <div class="solution-item">
+                    <h3>Productivity Systems</h3>
+                    <p>Track your study habits, set goals, and get personalized recommendations to improve.</p>
+                </div>
+                
+                <div class="solution-item">
+                    <h3>Career Development</h3>
+                    <p>From resume building to interview preparation, everything you need for placement success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Tools</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-upload"></i>
+                    </div>
+                    <h3>Smart Material Ingestion</h3>
+                    <p>Automatically organizes and categorizes your study materials with AI-powered tagging.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Auto-Generated Quizzes</h3>
+                    <p>Personalized quizzes created from your study materials to test your understanding.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Progress Analytics Dashboard</h3>
+                    <p>Visualize your learning journey with detailed analytics and performance metrics.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>AI Resume Review</h3>
+                    <p>Get instant feedback and enhancement suggestions for your resume with AI analysis.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>PYQ Detection</h3>
+                    <p>Identify most repeated previous year questions to focus your preparation effectively.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <h3>Smart Note Summarizer</h3>
+                    <p>Automatically generates summaries and flashcards from your lengthy notes.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Become the best version of your academic journey</h2>
+            <p style="font-size: 1.2rem; color: var(--text-gray); max-width: 700px; margin: 0 auto;">Join thousands of students who are already transforming their learning experience with EdAlchemy.</p>
+            
+            <div class="cta-buttons-large">
+                <a href="#" class="btn btn-primary btn-large">Start Learning</a>
+                <a href="#" class="btn btn-secondary btn-large">Try Free Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+
+            <div class="footer-column">
+                <h3>Product</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Use Cases</a></li>
+                    <li><a href="#">Demo</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">GDPR</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 EdAlchemy. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
